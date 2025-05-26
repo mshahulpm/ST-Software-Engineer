@@ -85,8 +85,29 @@ class LinkedList {
         console.log(ll);
     }
 
+    reverse() {
+        let prev: any = null
+        let curr = this.head
+        let next: any
+
+        while (curr) {
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
 }
 
+let ll = new LinkedList(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+ll.append(5)
+ll.print()
+ll.reverse()
+ll.print()
 class LinkedListWithTail {
 
     head: LinkNode | null = null
